@@ -1,0 +1,10 @@
+require:
+  - rubocop-rails
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+
+Style/FrozenStringLiteralComment:
+  Include:
+    - 'config/**/*.rb'
