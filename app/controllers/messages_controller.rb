@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def index
-    @messages = current_user_session.messages.timeline
+    @messages = current_user_session.messages
   end
 
   def create
@@ -16,6 +16,6 @@ class MessagesController < ApplicationController
   end
 
   def twilio_messager
-    @twilio_messager ||= TwilioMessager.new(message_params)
+    @twilio_messager ||= TwilioMessager.new(**message_params.to_h.symbolize_keys)
   end
 end

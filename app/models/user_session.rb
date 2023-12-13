@@ -1,5 +1,5 @@
 class UserSession < ApplicationRecord
-  has_many :messages, dependent: :destroy
+  has_many :messages, -> { timeline }, dependent: :destroy, inverse_of: :user_session
 
   def self.find_or_create(session_id)
     if session_id.present?
@@ -10,6 +10,6 @@ class UserSession < ApplicationRecord
   end
 
   def create_message(attributes)
-    messages.create(attributes)
+    messages.create!(attributes)
   end
 end

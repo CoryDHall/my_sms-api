@@ -1,1 +1,1 @@
-json.array! @messages, partial: 'message', as: :message
+json.array! @messages, partial: "message", as: :message
